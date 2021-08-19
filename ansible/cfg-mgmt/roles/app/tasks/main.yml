@@ -1,0 +1,19 @@
+---
+  - name: Download the NodeJS code from the GitRepo
+    become: yes
+    git:
+       repo: 'https://{{gituser}}:{{gitpass}}@github.com/{{gitrepo}}.git'
+       dest: "{{ destdir }}"
+       force: yes
+
+  - name: delete existing pm2 processes if running
+    command: "sudo pm2 delete all && sudo pm2 save --force "
+    ignore_errors: True
+    # become: yes
+    # become_user: root
+
+  - name: start pm2 process
+    command: 'sudo pm2 start --name "{{service_name}}" "{{destdir}}/main.js" && sudo pm2 save --force '
+    ignore_errors: True
+    # become: yes
+    # become_user: root

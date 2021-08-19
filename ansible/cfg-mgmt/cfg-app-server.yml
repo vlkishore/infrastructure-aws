@@ -1,0 +1,10 @@
+---
+- hosts: app
+  roles:
+  - app
+  vars_files:
+    - ./secret.yml
+  vars:
+    - destdir: /app/dev
+    - service_name: app
+    - gitrepo: vlkishore/nodejs-helloword

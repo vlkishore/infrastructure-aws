@@ -49,27 +49,27 @@ Configuring EC2 instances and deploy app
   - On MacOS:
     - Installation 
     - ```sh
-    curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-    sudo installer -pkg AWSCLIV2.pkg -target /
-    ```
+      curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+      sudo installer -pkg AWSCLIV2.pkg -target /
+      ```
     - Verification 
     - ```sh
-    which aws
-    aws --version
-    ```
+      which aws
+      aws --version
+      ```
   - On Other OS , please follow :  https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 - Packer
   - Install Hsicorp Packer for building the AMI
   - On MacOS:
     - Installation 
     - ```sh
-    brew tap hashicorp/tap
-    brew install hashicorp/tap/packer
-    ```
+      brew tap hashicorp/tap
+      brew install hashicorp/tap/packer
+      ```
     - Verification 
     - ```sh
-    packer -version
-    ```
+      packer -version
+      ```
   - On Other OS , please follow :  https://learn.hashicorp.com/tutorials/packer/get-started-install-cli, https://www.packer.io/downloads, 
 - Ansible
   - On MacOS:
@@ -86,13 +86,13 @@ Configuring EC2 instances and deploy app
   - On MacOS:
     - Installation
     - ```sh
-    brew tap hashicorp/tap
-    brew install hashicorp/tap/terraform
-    ```
+      brew tap hashicorp/tap
+      brew install hashicorp/tap/terraform
+      ```
     - Verification 
     - ```sh
-    terraform -version
-    ```
+      terraform -version
+      ```
   - On Other OS, please follow: https://learn.hashicorp.com/tutorials/terraform/install-cli
 
 
@@ -144,7 +144,8 @@ To pass the variables that are needed for the terraform to build the infrastruct
     "Team"            = "DevOps"
     "Owner"           = "Prabhu"
     "ManagedBy"       = "Terraform"
-  }```
+  }
+  ```
 
 
 ### Infrastructure Verify: terraform plan
@@ -161,7 +162,7 @@ To build and verify the infrastructure resources by terraform
 To deploy the infrastructure resources by terraform
 ```sh
     cd infrastructure-aws/app_infra
-    terraform deploy --var-file=../config/tfvars/dev.tfvars  
+    terraform apply --var-file=../config/tfvars/dev.tfvars  
 ```
 
 ### Infrastructure CleanUp: terraform destroy
@@ -213,6 +214,12 @@ On the file `ansible.cfg`, please enter the appropriate values for the following
     - gitrepo: vlkishore/nodejs-helloword
 ```
 
+### Add the host 
+- On the file `hosts` under ansible add the EC2 instance IP 
+```sh
+   [app]
+    app-1 ansible_host= `enter the public IP of EC2 instance` ansible_port=22
+```
 ### Run or Apply Ansible Playbook
 - Navigate to `infrastructure-aws/ansible` folder
 - run the following forapplying the playbook

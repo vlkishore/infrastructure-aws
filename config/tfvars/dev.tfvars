@@ -5,7 +5,7 @@ role_arn    = null
 external_id = null
 
 name = "dev"
-base_domain="prabhu.com"
+base_domain="kishore.com"
 vpc_cidr = "10.0.0.0/16"
 
 app = {
@@ -22,6 +22,6 @@ app = {
 
 tags = {
   "Team"            = "DevOps"
-  "Owner"           = "Prabhu"
+  "Owner"           = "kishore"
   "ManagedBy"       = "Terraform"
 }

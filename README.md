@@ -125,7 +125,7 @@ To pass the variables that are needed for the terraform to build the infrastruct
   aws_account = "1234567890"
   
   name = "dev"
-  base_domain="prabhu.com"
+  base_domain="kishore.com"
   vpc_cidr = "10.0.0.0/16"
   
   app = {
@@ -142,7 +142,7 @@ To pass the variables that are needed for the terraform to build the infrastruct
   
   tags = {
     "Team"            = "DevOps"
-    "Owner"           = "Prabhu"
+    "Owner"           = "kishore"
     "ManagedBy"       = "Terraform"
   }
   ```
@@ -220,6 +220,14 @@ On the file `ansible.cfg`, please enter the appropriate values for the following
    [app]
     app-1 ansible_host= `enter the public IP of EC2 instance` ansible_port=22
 ```
+
+### Check the permission of the pem file
+- Check the pem file permission under `config/ssh-keys`, it should be `600`
+- if not update it with `chmod` command
+```sh
+   chmod 600 config/ssh-keys/dev.pem
+```
+
 ### Run or Apply Ansible Playbook
 - Navigate to `infrastructure-aws/ansible` folder
 - run the following forapplying the playbook

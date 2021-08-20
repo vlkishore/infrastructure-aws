@@ -1,15 +1,4 @@
-# module "ssl-cert" {
-#   source = "../modules/terraform-aws-acm"
-#   depends_on = [module.route53]
-#   domain_name    = "${terraform.workspace}.${var.base_domain}"
-#   san            = ["*.${terraform.workspace}.${var.base_domain}"]
-#   zone_id        = var.route53_zone_id
-#   tags = merge({
-#     Name = "${terraform.workspace}.${var.base_domain}"
-#     },
-#     var.tags
-#   )
-# }
+
 
 resource "tls_private_key" "self_cert" {
   algorithm = "RSA"

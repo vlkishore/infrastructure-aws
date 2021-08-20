@@ -11,7 +11,7 @@ module "tg_app" {
     port                = "traffic-port"
     protocol            = "HTTP"
     interval_seconds    = "10"
-    path                = "/"
+    path                = "/health"
     timeout_seconds     = "5"
     enabled             = true
     healthy_threshold   = 2

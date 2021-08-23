@@ -1,5 +1,3 @@
-# Hubilo Infrastructure
-
 ## Architecture
 ![Alt text](./tf-ansible-Infra.jpg?raw=true "Architecture")
 

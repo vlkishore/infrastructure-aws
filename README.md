@@ -1,7 +1,7 @@
 ## Architecture
 ![Alt text](./tf-ansible-Infra.jpg?raw=true "Architecture")
 
-- `Terraform` - Builds the network components suchs as VPC, Subnet, Routes, Aoute Table associates and Certificate
+- `Terraform` - Builds the network components suchs as VPC, Subnet, Routes, Route Table associates and Certificate
 - `Packer` - Gets executed by `Terraform` as a local-exec that kicks after the network modules are provisioned
 - This builds an AMI on AWS N.Virginia region (`us-east-1`) and the AMI contains
   - aws cli
